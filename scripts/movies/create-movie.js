@@ -4,8 +4,7 @@
 
     function createMovieFromFormObj(dataObject) {
         const movie = new Movie(dataObject.title, dataObject.genre, dataObject.releaseYear, dataObject.runtime);
-        const review = new Review(movie, dataObject.rating, dataObject.comment);
-        return review;
+        return movie;
     }
 
     function create() {
@@ -15,9 +14,9 @@
 
         setStatus('PREPARING POST REQUEST');
 
-        fetch('https://localhost:8080/movie', {
+        fetch('http://localhost:8080/movie', { 
             method: 'POST', 
-            body: JSON.stringify(createMovieFromFormObj(formDataObject)),
+            body: JSON.stringify(createMovieFromFormObj(formDataObject), console.log(formDataObject)),
             headers: {
                 'Content-type': 'application/json' 
             }
@@ -30,7 +29,7 @@
           .then(movie => {
             setStatus('RENDERING TABLE');
             
-            renderMovieTable([Movie], dataTable);
+            renderMovieTable([movie], dataTable);
             setStatus('RESPONSE RENDERED INTO TABLE');
         })
           .catch(error => {
