@@ -46,7 +46,7 @@
     function readById() {
         setStatus("PREPARING GET REQUEST");
 
-        return fetch(`https://jsonplaceholder.typicode.com/users/${id.value}`, {
+        return fetch(`https://localhost:8080/movie/${id.value}`, {
                 method: "GET",
             })
             .then((response) => {
@@ -63,37 +63,19 @@
             });
     }
 
-    // default initialisation
-
     id.addEventListener("change", function(event) {
-        readById(id.value).then((user) => {
-            // setting the input boxes below
+        readById(id.value).then((movie) => {
 
-            formInputs[1].value = user.name;
-            formInputs[2].value = user.username;
-            formInputs[3].value = user.email;
-            formInputs[4].value = user.phone;
-            formInputs[5].value = user.website;
-
-            formInputs[6].value = user.address.street;
-            formInputs[7].value = user.address.city;
-            formInputs[8].value = user.address.suite;
-            formInputs[9].value = user.address.zipcode;
-            formInputs[10].value = user.address.geo.lat;
-            formInputs[11].value = user.address.geo.long;
-
-            formInputs[12].value = user.company.name;
-            formInputs[13].value = user.company.bs;
-            formInputs[14].value = user.company.catchPhrase;
+            formInputs[1].value = movie.title;
+            formInputs[2].value = user.genre;
+            formInputs[3].value = user.releaseYear;
+            formInputs[4].value = user.runtime;
         });
     });
 
     function handleFormSubmission(event) {
-        // prevent form submission from refreshing page in this case, returning false also does the same
-        // - more generally, preventDefault() prevents default behaviours of an event
         event.preventDefault();
         updateUser();
-        //return false;
     }
 
     dataForm.addEventListener("submit", handleFormSubmission);
