@@ -34,5 +34,28 @@
         });
     }
 
+    function readById() {
+        setStatus('PREPARING GET REQUEST');
 
-})
+        fetch(`https://localhost:8080/movie/${id.value}`, {
+            method: 'GET'
+        }).then(response => {
+            setStatus('RECEIVED RESPONSE');
+            if (response.ok) return response.json();
+            else throw new Error('Uh oh, something went wrong...');
+        })
+          .then(movie => {
+            setStatus('RENDERING TABLE');
+            renderMovieTable([movie], dataTable);
+            setStatus('RESPONSE RENDERED INTO TABLE');
+        })
+          .catch(error => {
+            setStatus('ERROR ENCOUNTERED');
+            handleError(error);
+        });
+    }
+
+    readAll();
+
+
+})();
