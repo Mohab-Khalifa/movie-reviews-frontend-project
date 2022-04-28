@@ -57,5 +57,18 @@
 
     readAll();
 
+    requestSelector.addEventListener('change', function(event) {
+        if (this.value == 'ALL') {
+            toggleIdVisibility(false);
+        } else if (this.value == 'ID') {
+            toggleIdVisibility(true);
+        }
+    });
+
+    dataForm.addEventListener('submit', function(event) {
+        event.preventDefault(); 
+        if (requestSelector.value == 'ALL') readAll();
+        else if (requestSelector.value == 'ID') readById();
+    });
 
 })();
