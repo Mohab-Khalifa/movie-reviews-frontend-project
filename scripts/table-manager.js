@@ -43,3 +43,10 @@ const tableManagerPrototype = {
         return values;
     }
 }
+
+function TableManager() {
+
+}
+
+TableManager.prototype = tableManagerPrototype;
+TableManager.prototype.constructor = TableManager;
