@@ -1,5 +1,5 @@
 (function() {
-    const requestManager = new RequestManager('https://jsonplaceholder.typicode.com/users');
+    const requestManager = new RequestManager('https://jsonplaceholder.typicode.com/movies');
     const tableManager = new TableManager();
 
     const dataTable = document.querySelector('#data-table');
@@ -44,6 +44,41 @@
         return review;
       }
 
-      
+      function handleFormSubmission(event) {
+        event.preventDefault(); // prevent default page refresh on submit
+        const form = event.currentTarget;
+        const formData = new FormData(form);
+        const dataObject = Object.fromEntries(formData.entries());
+  
+        let movie;
+        switch (requestSelector.value) {
+          case 'GET':
+            requestManager.setPayload('');
+            requestManager.setRequestMethod('GET');
+  
+            requestManager.sendRequest().then(response => response.json())
+                                        .then(data => renderMovieTable(data))
+                                        .catch(err => handleError(err));
+            break;
+          case 'POST':
+            movie = createMovieFromFormObj(dataObject);
+            requestManager.setRequestMethod('POST');
+            requestManager.setPayload(JSON.stringify(movie));
+            requestManager.setHeaders({
+              'Content-type': 'application/json'
+            });
+  
+            requestManager.sendRequest().then(response => response.json())
+                                        .then(data => addMovieToTable(data))
+                                        .catch(err => handleError(err));
+            break;
+          case 'PUT':
+            movie = createMovieFromFormObj(dataObject);
+            break;
+          case 'DELETE':
+  
+            break;
+        }
+      }
 
 })();
