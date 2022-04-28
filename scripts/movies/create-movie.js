@@ -25,7 +25,7 @@
             setStatus('RECEIVED RESPONSE');
 
             if (response.ok) return response.json();
-            else throw new Error('Uh oh, something went wrong...');
+            else throw new Error('something went wrong with the request');
         })
           .then(movie => {
             setStatus('RENDERING TABLE');
