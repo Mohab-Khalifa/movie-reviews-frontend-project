@@ -34,7 +34,7 @@
             })
             .then((movie) => {
                 setStatus("RENDERING TABLE");
-                renderUserTable([movie], dataTable);
+                renderMovieTable([movie], dataTable);
                 setStatus("RESPONSE RENDERED INTO TABLE");
             })
             .catch((error) => {
@@ -54,8 +54,8 @@
                 if (response.ok) return response.json();
                 else throw new Error("Uh oh, something went wrong...");
             })
-            .then((user) => {
-                return user;
+            .then((movie) => {
+                return movie;
             })
             .catch((error) => {
                 setStatus("ERROR ENCOUNTERED");
@@ -67,15 +67,15 @@
         readById(id.value).then((movie) => {
 
             formInputs[1].value = movie.title;
-            formInputs[2].value = user.genre;
-            formInputs[3].value = user.releaseYear;
-            formInputs[4].value = user.runtime;
+            formInputs[2].value = movie.genre;
+            formInputs[3].value = movie.releaseYear;
+            formInputs[4].value = movie.runtime;
         });
     });
 
     function handleFormSubmission(event) {
         event.preventDefault();
-        updateUser();
+        updateMovie();
     }
 
     dataForm.addEventListener("submit", handleFormSubmission);
