@@ -29,15 +29,12 @@
             })
             .then((response) => {
                 setStatus("RECEIVED RESPONSE");
-                // response.ok checks if the response code is between 200 - 206
-                // - returns a true value if it is, otherwise false
                 if (response.ok) return response.json();
                 else throw new Error("Uh oh, something went wrong...");
             })
-            .then((user) => {
+            .then((movie) => {
                 setStatus("RENDERING TABLE");
-                // user is put in an array because renderUserTable() accepts an array of users
-                renderUserTable([user], dataTable);
+                renderUserTable([movie], dataTable);
                 setStatus("RESPONSE RENDERED INTO TABLE");
             })
             .catch((error) => {
