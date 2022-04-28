@@ -27,29 +27,36 @@
         <section id="banner">
             <h2>Status: <span id="status"></span></h2>
         </section>
+        <div id="data-table">
+
+        </div>
         <main class="container">
-            <form id="data-form">
-                <fieldset id="request-type">
-                    <legend>Request type</legend>
-                    <label for="method">Type:</label>
-                    
-                    <select name="method" id="method">
-                        
-                        <option value="ALL">Read a list of Movies</option>
-                        <option value="ID">Read a Movie by their id</option>
-                    </select>
-                </fieldset>
-                
-                <fieldset id="movie-id-field" class="hide">
+            <form id="data-form" class="container">
+                <fieldset id="user-id-field">
                     <legend>Movie id</legend>
                     <label for="id">ID:</label>
                     <input type="number" name="id" id="id">
                 </fieldset>
-                <button type="submit" style="width: 100%;">Submit</button>
+
+
+                <fieldset id="general-info">
+                    <legend>General information</legend>
+
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title"><br>
+
+                    <label for="genre">Genre:</label>
+                    <input type="text" id="genre" name="genre"><br>
+
+                    <label for="releaseYear">Release Year:</label>
+                    <input type="number" id="releaseYear" name="releaseYear" required><br>
+
+                    <label for="runtime">Runtime:</label>
+                    <input type="number" id="runtime" name="runtime"><br>
+                </fieldset>
+
+                <button type="submit">Submit</button>
             </form>
-            <div id="data-table">
-                
-            </div>
         </main>
     </div>
 
