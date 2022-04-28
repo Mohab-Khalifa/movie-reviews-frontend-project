@@ -29,7 +29,7 @@
             if (response.ok) return response.json();
             else throw new Error('Uh oh, something went wrong...');
         }).then(json => {
-            setStatus('MOVIEf DELETED');
+            setStatus('MOVIE DELETED');
             console.log(json);
         }).catch(error => {
             setStatus('FAILED TO DELETE MOVIE');
