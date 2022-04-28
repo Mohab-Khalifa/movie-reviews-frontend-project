@@ -4,43 +4,27 @@
     const dataForm = document.querySelector("#data-form");
     const dataTable = document.querySelector("#data-table");
 
-    function createUserFromFormObj(dataObject) {
-        const address = new Address(
-            dataObject.street,
-            dataObject.city,
-            dataObject.suite,
-            dataObject.zipcode,
-            new Geolatitude(dataObject.lat, dataObject.lng)
+    function createMovieFromFormObj(dataObject) {
+        const movie = new Movie(
+            dataObject.title,
+            dataObject.genre,
+            dataObject.releaseYear,
+            dataObject.runtime,
         );
-        const company = new Company(
-            dataObject["company-name"],
-            dataObject.bs,
-            dataObject["catch-phrase"]
-        );
-        const user = new User(
-            dataObject.name,
-            dataObject.username,
-            dataObject.email,
-            dataObject.phone,
-            address,
-            dataObject.website,
-            company,
-            dataObject.id
-        );
-        return user;
+        return movie;
     }
 
-    function updateUser() {
+    function updateMovie() {
         const formData = new FormData(dataForm);
         const formDataObject = Object.fromEntries(formData.entries());
 
         setStatus("PREPARING UPDATE REQUEST");
 
-        fetch(`https://jsonplaceholder.typicode.com/users/${id.value}`, {
-                method: "PUT", // request method
-                body: JSON.stringify(createUserFromFormObj(formDataObject)),
+        fetch(`https://localhost:8080/movie/${id.value}`, {
+                method: "PUT", 
+                body: JSON.stringify(createMovieFromFormObj(formDataObject)),
                 headers: {
-                    "Content-type": "application/json", // has json data in the body
+                    "Content-type": "application/json", 
                 },
             })
             .then((response) => {
