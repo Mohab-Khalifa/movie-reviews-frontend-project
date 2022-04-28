@@ -67,3 +67,24 @@ footer {
     color: white;
     text-align: center;
 }
+
+#data-table, form {
+    width: 100%;
+    text-align: left;
+    overflow: scroll;
+}
+
+#data-table > table {
+    width: 100%;
+    text-align: left;
+    overflow: scroll;
+}
+
+#banner {
+    flex: 100%;
+    padding: 32px;
+}
+
+.hide {
+    display: none;
+}
