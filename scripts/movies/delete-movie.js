@@ -3,15 +3,15 @@
     const id = document.querySelector('#id');
 
     function findById() {
-        setStatus('Finding user to delete...')
-        fetch(`https://jsonplaceholder.typicode.com/users/${id.value}`, {
+        setStatus('Finding movie to delete...')
+        fetch(`https://localhost:8080/movie/${id.value}`, {
             method: 'GET'
         }).then(response => {
             if (response.ok) return response.json();
             else throw new Error('Uh oh, something went wrong...');
         })
-          .then(user => {
-            confirm = window.confirm("Are you sure you want to delete " + user.name + "?")
+          .then(movie => {
+            confirm = window.confirm("Are you sure you want to delete " + movie.title + "?")
             if (confirm) {
                 remove();
             }
