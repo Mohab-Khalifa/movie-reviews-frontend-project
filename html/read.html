@@ -18,4 +18,38 @@
         <a class="nav-link" href="./delete.html">DELETE</a>
     </nav>
 
+    <header>
+        <h1>Movies profiles</h1>
+        <p>Read through movies</p>
+    </header>
+
+    <div class="container">
+        <section id="banner">
+            <h2>Status: <span id="status"></span></h2>
+        </section>
+        <main class="container">
+            <form id="data-form">
+                <fieldset id="request-type">
+                    <legend>Request type</legend>
+                    <label for="method">Type:</label>
+
+                    <select name="method" id="method">
+                        <option value="ALL">Read a list of movies</option>
+                        <option value="ID">Read a movie by their id</option>
+                    </select>
+                </fieldset>
+                
+                <fieldset id="movie-id-field" class="hide">
+                    <legend>Movie id</legend>
+                    <label for="id">ID:</label>
+                    <input type="number" name="id" id="id">
+                </fieldset>
+                <button type="submit" style="width: 100%;">Submit</button>
+            </form>
+            <div id="data-table">
+                
+            </div>
+        </main>
+    </div>
+
 </body>
