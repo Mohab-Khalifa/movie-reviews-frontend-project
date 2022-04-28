@@ -22,6 +22,51 @@
         <h1>Create a Movie to review</h1>
         <p>Add a Movie on this page</p>
     </header>
+
+    <div class="container">
+        <section id="banner" class="container">
+            <h2>Status: <span id="status"></span></h2>
+        </section>
+        <main class="container">
+            <div id="data-table">
+                
+            </div>
+            <h2>Create a movie review:</h2>
+            <!-- declare a form with form element -->
+            <form id="data-form" class="container">
+                <!-- a fieldset is a group of related form inputs within a form (not mandatory, but helpful for accessibility) -->
+                <fieldset id="general-info">
+                    <legend>Movie Details</legend>
+                    
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title"><br>
+
+                    <label for="genre">Genre:</label>
+                    <input type="text" id="genre" name="genre"><br>
+
+                    <label for="release year">Release Year:</label>
+                    <input type="email" id="release year" name="release year" required><br>
+
+                    <label for="runtime">Runtime:</label>
+                    <input type="tel" id="runtime" name="runtime"><br>
+
+                </fieldset>
+
+                <fieldset id="review">
+                    <legend>Review</legend>
+
+                    <label for="rating">Rating:</label>
+                    <input type="text" id="rating" name="rating"><br>
+
+                    <label for="comment">Comment:</label>
+                    <input type="text" id="comment" name="comment"><br>
+
+                </fieldset>
+
+                <button type="submit">Submit</button>
+            </form>
+        </main>
+    </div>
     
 </body>
 </html>
