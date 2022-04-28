@@ -29,4 +29,17 @@ const tableManagerPrototype = {
         }
         return body;
     },
+    createTable: function(headers, values) {
+        const table = document.createElement("table");
+        table.appendChild(this.createTableHeader(headers));
+        table.appendChild(this.createTableBody(headers, values));
+        return table;
+    },
+    getValuesInOrder: function(headers, obj) {
+        const values = [];
+        for (let i = 0; i < headers.length; i++) {
+            values[i] = obj[headers[i]];
+        }
+        return values;
+    }
 }
