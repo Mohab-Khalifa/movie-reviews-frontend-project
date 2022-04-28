@@ -23,16 +23,16 @@
     }
 
     function remove() {
-        fetch(`https://jsonplaceholder.typicode.com/users/${id.value}`, {
+        fetch(`https://localhost:8080/movie/${id.value}`, {
             method: 'DELETE'
         }).then(response => {
             if (response.ok) return response.json();
             else throw new Error('Uh oh, something went wrong...');
         }).then(json => {
-            setStatus('USER DELETED');
+            setStatus('MOVIEf DELETED');
             console.log(json);
         }).catch(error => {
-            setStatus('FAILED TO DELETE USER');
+            setStatus('FAILED TO DELETE MOVIE');
             handleError(error);
         });
     }
