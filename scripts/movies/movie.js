@@ -10,26 +10,10 @@ function Movie(title, genre, releaseYear, runtime, id = null) {
     }
 }
 
-function Review(movie, rating, comment, id = null) {
-    this.movie = new Movie(movie.title, movie.genre, movie.releaseYear, movie.runtime);
-    this.rating = rating;
-    this.comment = comment;
-    this.id = id;
-}
-
 const movieHeaders = ['id', 'title', 'genre', 'releaseYear', 'runtime'];
-const reviewHeaders = ['id', 'movie', 'rating', 'comment'];
 
-function renderUserTable(movies, containerElement) {
+function renderMovieTable(movies, containerElement) {
     const tableManager = new TableManager();
     const table = tableManager.createTable(movieHeaders, movies);
-    const table2 = tableManager.createTable(reviewHeaders, movies);
-    containerElement.replaceChildren(table);
-    containerElement.replaceChildren(table2);
-}
-
-function renderReviewsTable(reviews, containerElement) {
-    const tableManager = new TableManager();
-    const table = tableManager.createTable(CommentsHeaders, reviews);
     containerElement.replaceChildren(table);
 }
