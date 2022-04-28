@@ -39,4 +39,12 @@
         });
     }
 
+    function handleFormSubmission(event) {
+        
+        event.preventDefault(); 
+        create();
+    }
+
+    dataForm.addEventListener('submit', handleFormSubmission);
+
 })();
