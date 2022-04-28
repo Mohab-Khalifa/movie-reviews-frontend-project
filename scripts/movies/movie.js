@@ -27,3 +27,9 @@ function renderUserTable(movies, containerElement) {
     containerElement.replaceChildren(table);
     containerElement.replaceChildren(table2);
 }
+
+function renderReviewsTable(reviews, containerElement) {
+    const tableManager = new TableManager();
+    const table = tableManager.createTable(CommentsHeaders, reviews);
+    containerElement.replaceChildren(table);
+}
