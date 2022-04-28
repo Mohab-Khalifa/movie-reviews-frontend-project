@@ -27,4 +27,23 @@
         else id.classList.remove('hide');
       }
 
+      function renderMovieTable(movies) {
+        const table = tableManager.createTable(movieHeaders, movies);
+        dataTable.replaceChildren(table);
+      }
+  
+      function addMovieToTable(movie) {
+        console.log(movie);
+        const tableBody = dataTable.querySelector('tbody');
+        tableBody.appendChild(tableManager.createTableRow(tableManager.getValuesInOrder(movieHeaders, movie)));
+      }
+  
+      function createmovieFromFormObj(dataObject) {
+        const movie = new Movie(dataObject.title, dataObject.genre, dataObject.releaseYear, dataObject.runtime);
+        const review = new Review(movie, dataObject.rating, dataObject.comment);
+        return review;
+      }
+
+      
+
 })();
