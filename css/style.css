@@ -88,3 +88,13 @@ footer {
 .hide {
     display: none;
 }
+
+@media screen and (max-width: 1024px) {
+    aside {
+        flex: 25%;
+    }
+
+    main {
+        flex: 75%
+    }
+}
