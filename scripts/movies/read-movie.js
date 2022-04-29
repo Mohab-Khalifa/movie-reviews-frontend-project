@@ -16,7 +16,7 @@
     function readAll() {
         setStatus('PREPARING GET REQUEST');
 
-        fetch('https://localhost:8080/movie', {
+        fetch('http://localhost:8080/movie', {
             method: 'GET'
         }).then(response => {
             setStatus('RECEIVED RESPONSE');
@@ -37,7 +37,7 @@
     function readById() {
         setStatus('PREPARING GET REQUEST');
 
-        fetch(`https://localhost:8080/movie/${id.value}`, {
+        fetch(`http://localhost:8080/movie/${id.value}`, {
             method: 'GET'
         }).then(response => {
             setStatus('RECEIVED RESPONSE');

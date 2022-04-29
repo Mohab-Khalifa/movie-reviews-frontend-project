@@ -4,7 +4,7 @@
 
     function findById() {
         setStatus('Finding movie to delete...')
-        fetch(`https://localhost:8080/movie/${id.value}`, {
+        fetch(`http://localhost:8080/movie/${id.value}`, {
             method: 'GET'
         }).then(response => {
             if (response.ok) return response.json();
@@ -23,7 +23,7 @@
     }
 
     function remove() {
-        fetch(`https://localhost:8080/movie/${id.value}`, {
+        fetch(`http://localhost:8080/movie/${id.value}`, {
             method: 'DELETE'
         }).then(response => {
             if (response.ok) return response.json();

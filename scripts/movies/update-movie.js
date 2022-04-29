@@ -20,7 +20,7 @@
 
         setStatus("PREPARING UPDATE REQUEST");
 
-        fetch(`https://localhost:8080/movie/${id.value}`, {
+        fetch(`http://localhost:8080/movie/${id.value}`, {
                 method: "PUT", 
                 body: JSON.stringify(createMovieFromFormObj(formDataObject)),
                 headers: {
@@ -46,7 +46,7 @@
     function readById() {
         setStatus("PREPARING GET REQUEST");
 
-        return fetch(`https://localhost:8080/movie/${id.value}`, {
+        return fetch(`http://localhost:8080/movie/${id.value}`, {
                 method: "GET",
             })
             .then((response) => {
